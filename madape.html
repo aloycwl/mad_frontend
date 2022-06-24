@@ -4,36 +4,35 @@
 <br /><br />
 <p id="traits"></p>
 <script>
-  var Head = ['Head 1', 'Head 2'],
-    Leg = ['Leg 1', 'Leg 2'],
-    Hand = ['Hand 1', 'Hand 2'],
-    Mouth = [
-      'Mouth 1',
-      'Mouth 2',
-      'Mouth 3',
-      'Mouth 4',
-      'Mouth 5',
-      'Mouth 6',
-      'Mouth 7',
-      'Mouth 8',
-      'Mouth 9',
-      'Mouth 10',
-    ],
-    Brow = ['Brow 1', 'Brow 2'],
-    Body = [
-      'Body 1',
-      'Body 2',
-      'Body 3',
-      'Body 4',
-      'Body 5',
-      'Body 6',
-      'Body 7',
-      'Body 8',
-      'Body 9',
-      'Body 10',
-      'Body 11',
+  var Nose = ['Nose 1', 'Nose 2'],
+    Mouth = ['Mouth 1', 'Mouth 2'],
+    Body = ['Body 1', 'Body 2'],
+    Face = ['Face 1'],
+    Hat = [
+      'Hat 1',
+      'Hat 2',
+      'Hat 3',
+      'Hat 4',
+      'Hat 5',
+      'Hat 6',
+      'Hat 7',
+      'Hat 8',
+      'Hat 9',
+      'Hat 10',
     ],
     Eye = ['Eye 1', 'Eye 2'],
+    Head = [
+      'Head 1',
+      'Head 2',
+      'Head 3',
+      'Head 4',
+      'Head 5',
+      'Head 6',
+      'Head 7',
+      'Head 8',
+      'Head 9',
+      'Head 10',
+    ],
     Ear = ['Ear 1', 'Ear 2'],
     s = 350,
     cnt = 0;
@@ -43,7 +42,7 @@
     if (r + s2 <= s3.length) {
       txt += `{"trait_type":"${s1}","value":"${s3[r]}"},`;
       img = new Image();
-      img.src = `https://aloycwl.github.io/mad_frontend/cat.png`;
+      img.src = `https://aloycwl.github.io/mad_frontend/ape.png`;
       return new Promise((resolve) => {
         img.onload = function () {
           cd.drawImage(img, r * s, s4 * s, s, s, 0, 0, 350, 350);
@@ -61,13 +60,13 @@
       cd.clearRect(0, 0, 350, 350);
     //$('#traits').html(``);
     txt = '{"attributes":[';
-    await dd('Head', 0, Head, 0);
-    await dd('Leg', 0, Leg, 1);
-    await dd('Hand', 0, Hand, 2);
-    await dd('Mouth', 0, Mouth, 3);
-    await dd('Brow', 0, Brow, 4);
-    await dd('Body', 0, Body, 5);
-    await dd('Eye', 0, Eye, 6);
+    await dd('Body', 0, Body, 2);
+    await dd('Face', 0, Face, 3);
+    await dd('Head', 0, Head, 6);
+    await dd('Nose', 0, Nose, 0);
+    await dd('Mouth', 0, Mouth, 1);
+    await dd('Hat', 0, Hat, 4);
+    await dd('Eye', 0, Eye, 5);
     await dd('Ear', 0, Ear, 7);
     //$('#traits').append(txt.substring(0, txt.length - 1) + ']}');
     cnt++;
