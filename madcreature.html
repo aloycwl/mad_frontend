@@ -4,61 +4,37 @@
 <br /><br />
 <p id="traits"></p>
 <script>
-  var Background = [
-      'Green',
-      'Pink',
-      'Brown',
-      'Dark Gray',
-      'Purple',
-      'Gray',
-      'Yellow',
-      'Red',
-      'Blue',
+  var Head = ['Head 1', 'Head 2'],
+    Leg = ['Leg 1', 'Leg 2'],
+    Hand = ['Hand 1', 'Hand 2'],
+    Mouth = [
+      'Mouth 1',
+      'Mouth 2',
+      'Mouth 3',
+      'Mouth 4',
+      'Mouth 5',
+      'Mouth 6',
+      'Mouth 7',
+      'Mouth 8',
+      'Mouth 9',
+      'Mouth 10',
     ],
+    Brow = ['Brow 1', 'Brow 2'],
     Body = [
-      'Blue',
-      'Pink',
-      'Light Gray',
-      'Green',
-      'Red',
-      'Dark Gray',
-      'Brown',
-      'Purple',
-      'Yellow',
+      'Body 1',
+      'Body 2',
+      'Body 3',
+      'Body 4',
+      'Body 5',
+      'Body 6',
+      'Body 7',
+      'Body 8',
+      'Body 9',
+      'Body 10',
+      'Body 11',
     ],
-    Headwear = ['Black Headphones', 'White Headphones', 'Beret', 'Tophat'],
-    Brow = ['Furrowed', 'Raised', 'Normal'],
-    Eyes = ['Sore', 'Normal', 'Crazy', 'Tired', 'Blur', 'Happy', 'Flame'],
-    Beak = ['Open', 'Sad', 'Gold Teeth', 'Tounge Out', 'Wide'],
-    mAccessories = ['Black Glasses', 'Gold Glasses', 'Monacle'],
-    mClothes = [
-      'Black Tattoo',
-      'White Tattoo',
-      'Red Shirt',
-      'Purple Shirt',
-      'Blue Shirt',
-      'Green Shirt',
-      'Purple Suit',
-      'Red Suit',
-      'Black Suit',
-      'Blue Suit',
-    ],
-    fMask = ['Blue-Gold', 'Red-Purple', 'Red-Yellow', 'Gold'],
-    fClothes = [
-      'White Tattoo',
-      'Black Tattoo',
-      'Purple Flower Shirt',
-      'Blue Flower Shirt',
-      'Gray Flower Shirt',
-      'Pink Flower Shirt',
-      'Yellow Dress',
-      'Purple Dress',
-      'Blue Dress',
-      'Red Dress',
-    ],
-    fAccessories = ['Earrings', 'Necklace'],
-    fFlower = ['Red-Purple', 'Yellow-Orange', 'Purple-Blue'],
-    Teacup = ['Singapore'],
+    Eye = ['Eye 1', 'Eye 2'],
+    Ear = ['Ear 1', 'Ear 2'],
     s = 340,
     cnt = 0;
 
@@ -67,7 +43,7 @@
     if (r + s2 <= s3.length) {
       txt += `{"trait_type":"${s1}","value":"${s3[r]}"},`;
       img = new Image();
-      img.src = `https://aloycwl.github.io/twc_frontend/img/gen1.png`;
+      img.src = `https://aloycwl.github.io/mad_frontend/cat.png`;
       return new Promise((resolve) => {
         img.onload = function () {
           cd.drawImage(img, r * s, s4 * s, s, s, 0, 0, 350, 350);
@@ -78,7 +54,7 @@
   }
   async function load() {
     $('#container').append(
-      `<canvas id="can${cnt}" width="350" height="350" style="cursor: hand"></canvas>`
+      `<canvas id="can${cnt}"width="350"height="350"></canvas>`
     );
     (c = document.getElementById(`can${cnt}`)),
       (cd = c.getContext('2d')),
@@ -86,22 +62,14 @@
     sex = ran(2);
     $('#traits').html(`${sex > 0 ? 'Male' : 'Female'}<br><br>`);
     txt = '{"attributes":[';
-    await dd('Background', 3, Background, 0);
-    await dd('Body', 0, Body, 2);
-    await dd('Headwear', 2, Headwear, 1);
-    await dd('Brow', 0, Brow, 3);
-    await dd('Eyes', 0, Eyes, 4);
-    if (sex > 0) {
-      await dd('Clothes', 2, mClothes, 5);
-      await dd('Accessories', 1, mAccessories, 6);
-    } else {
-      await dd('Clothes', 2, fClothes, 7);
-      await dd('Accessories', 1, fAccessories, 8);
-      await dd('Flower', 2, fFlower, 9);
-      await dd('Mask', 2, fMask, 10);
-    }
-    await dd('Beak', 0, Beak, 11);
-    await dd('Teacup', 0, Teacup, 12);
+    await dd('Head', 0, Head, 0);
+    await dd('Leg', 0, Leg, 1);
+    await dd('Hand', 0, Hand, 2);
+    await dd('Mouth', 0, Mouth, 3);
+    await dd('Brow', 0, Brow, 4);
+    await dd('Body', 0, Body, 5);
+    await dd('Eye', 0, Eye, 6);
+    await dd('Ear', 0, Ear, 6);
     $('#traits').append(txt.substring(0, txt.length - 1) + ']}');
     cnt++;
   }
