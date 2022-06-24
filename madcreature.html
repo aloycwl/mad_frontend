@@ -32,7 +32,7 @@
       'Body 10',
       'Body 11',
     ],
-    s = 340,
+    s = 350,
     cnt = 0;
 
   async function dd(s1, s2, s3, s4) {
@@ -40,7 +40,7 @@
     if (r + s2 <= s3.length) {
       txt += `{"trait_type":"${s1}","value":"${s3[r]}"},`;
       img = new Image();
-      img.src = `https://aloycwl.github.io/mad_frontend/cat.png`;
+      img.src = `https://aloycwl.github.io/mad_frontend/creature.png`;
       return new Promise((resolve) => {
         img.onload = function () {
           cd.drawImage(img, r * s, s4 * s, s, s, 0, 0, 350, 350);
@@ -56,15 +56,14 @@
     (c = document.getElementById(`can${cnt}`)),
       (cd = c.getContext('2d')),
       cd.clearRect(0, 0, 350, 350);
-    sex = ran(2);
-    $('#traits').html(`${sex > 0 ? 'Male' : 'Female'}<br><br>`);
+    //$('#traits').html(``);
     txt = '{"attributes":[';
     await dd('Head', 0, Head, 0);
     await dd('Leg', 0, Leg, 1);
     await dd('Hand', 0, Hand, 2);
     await dd('Mouth', 0, Mouth, 3);
     await dd('Body', 0, Body, 4);
-    $('#traits').append(txt.substring(0, txt.length - 1) + ']}');
+    //$('#traits').append(txt.substring(0, txt.length - 1) + ']}');
     cnt++;
   }
   function ran(p) {
