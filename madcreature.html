@@ -43,7 +43,7 @@
       img.src = `https://aloycwl.github.io/mad_frontend/creature.png`;
       return new Promise((resolve) => {
         img.onload = function () {
-          cd.drawImage(img, r * s, s4 * s, s, s, 0, 0, 350, 350);
+          cd.drawImage(img, r * s, s4 * s, s, s, 0, 0, s, s);
           resolve();
         };
       });
@@ -55,7 +55,7 @@
     );
     (c = document.getElementById(`can${cnt}`)),
       (cd = c.getContext('2d')),
-      cd.clearRect(0, 0, 350, 350);
+      cd.clearRect(0, 0, s, s);
     //$('#traits').html(``);
     txt = '{"attributes":[';
     await dd('Head', 0, Head, 0);
