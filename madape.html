@@ -1,0 +1,83 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://aloycwl.github.io/js/cdn/jquery.min.js"></script>
+<div id="container"></div>
+<br /><br />
+<p id="traits"></p>
+<script>
+  var Head = ['Head 1', 'Head 2'],
+    Leg = ['Leg 1', 'Leg 2'],
+    Hand = ['Hand 1', 'Hand 2'],
+    Mouth = [
+      'Mouth 1',
+      'Mouth 2',
+      'Mouth 3',
+      'Mouth 4',
+      'Mouth 5',
+      'Mouth 6',
+      'Mouth 7',
+      'Mouth 8',
+      'Mouth 9',
+      'Mouth 10',
+    ],
+    Brow = ['Brow 1', 'Brow 2'],
+    Body = [
+      'Body 1',
+      'Body 2',
+      'Body 3',
+      'Body 4',
+      'Body 5',
+      'Body 6',
+      'Body 7',
+      'Body 8',
+      'Body 9',
+      'Body 10',
+      'Body 11',
+    ],
+    Eye = ['Eye 1', 'Eye 2'],
+    Ear = ['Ear 1', 'Ear 2'],
+    s = 350,
+    cnt = 0;
+
+  async function dd(s1, s2, s3, s4) {
+    r = ran(s3.length);
+    if (r + s2 <= s3.length) {
+      txt += `{"trait_type":"${s1}","value":"${s3[r]}"},`;
+      img = new Image();
+      img.src = `https://aloycwl.github.io/mad_frontend/cat.png`;
+      return new Promise((resolve) => {
+        img.onload = function () {
+          cd.drawImage(img, r * s, s4 * s, s, s, 0, 0, 350, 350);
+          resolve();
+        };
+      });
+    }
+  }
+  async function load() {
+    $('#container').append(
+      `<canvas id="can${cnt}"width="350"height="350"></canvas>`
+    );
+    (c = document.getElementById(`can${cnt}`)),
+      (cd = c.getContext('2d')),
+      cd.clearRect(0, 0, 350, 350);
+    //$('#traits').html(``);
+    txt = '{"attributes":[';
+    await dd('Head', 0, Head, 0);
+    await dd('Leg', 0, Leg, 1);
+    await dd('Hand', 0, Hand, 2);
+    await dd('Mouth', 0, Mouth, 3);
+    await dd('Brow', 0, Brow, 4);
+    await dd('Body', 0, Body, 5);
+    await dd('Eye', 0, Eye, 6);
+    await dd('Ear', 0, Ear, 7);
+    //$('#traits').append(txt.substring(0, txt.length - 1) + ']}');
+    cnt++;
+  }
+  function ran(p) {
+    return Math.floor(Math.random() * p);
+  }
+  $(document).ready(
+    setInterval(async function () {
+      await load();
+    }, 500)
+  );
+</script>
