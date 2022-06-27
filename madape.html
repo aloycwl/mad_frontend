@@ -72,24 +72,22 @@
       cd.clearRect(0, 0, 350, 350);
     //$('#traits').html(``);
     txt = '{"attributes":[';
-    await dd('Background', 0, Background, 6);
-    await dd('Body', 0, Body, 2);
-    await dd('Ear', 0, Ear, 7);
-    await dd('Face', 0, Face, 3);
-    await dd('Head', 0, Head, 6);
-    await dd('Nose', 0, Nose, 0);
-    await dd('Mouth', 0, Mouth, 1);
-    await dd('Hat', 0, Hat, 4);
-    await dd('Eye', 0, Eye, 5);
+    await dd('Background', 0, Background, 7);
+    await dd('Face', 0, Face, 6);
+    await dd('Body', 0, Body, 0);
+    await dd('Head', 0, Head, 3);
+    await dd('Eye', 0, Eye, 2);
+    await dd('Nose', 0, Nose, 4);
+    await dd('Mouth', 0, Mouth, 5);
+    await dd('Hat', 0, Hat, 1);
     //$('#traits').append(txt.substring(0, txt.length - 1) + ']}');
     cnt++;
   }
   function ran(p) {
     return Math.floor(Math.random() * p);
   }
-  $(document).ready(
-    setInterval(async function () {
-      await load();
-    }, 500)
-  );
+  async function start() {
+    for (i = 0; i < 500; i++) await load();
+  }
+  start();
 </script>

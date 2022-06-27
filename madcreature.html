@@ -82,10 +82,8 @@
   function ran(p) {
     return Math.floor(Math.random() * p);
   }
-  load();
-  $(document).ready(
-    setInterval(async function () {
-      await load();
-    }, 500)
-  );
+  async function start() {
+    for (i = 0; i < 500; i++) await load();
+  }
+  start();
 </script>

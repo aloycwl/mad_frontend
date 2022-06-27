@@ -72,8 +72,8 @@
       (cd = c.getContext('2d')),
       cd.clearRect(0, 0, 350, 350);
     //$('#traits').html(``);
-    txt = '{"attributes":[';    
-    await dd('Background', 0, Background, 7);
+    txt = '{"attributes":[';
+    await dd('Background', 0, Background, 8);
     await dd('Head', 0, Head, 0);
     await dd('Leg', 0, Leg, 1);
     await dd('Hand', 0, Hand, 2);
@@ -88,9 +88,8 @@
   function ran(p) {
     return Math.floor(Math.random() * p);
   }
-  $(document).ready(
-    setInterval(async function () {
-      await load();
-    }, 500)
-  );
+  async function start() {
+    for (i = 0; i < 500; i++) await load();
+  }
+  start();
 </script>
