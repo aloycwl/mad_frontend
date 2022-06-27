@@ -34,6 +34,18 @@
       'Head 10',
     ],
     Ear = ['Ear 1', 'Ear 2'],
+    Background = [
+      'Background 1',
+      'Background 2',
+      'Background 3',
+      'Background 4',
+      'Background 5',
+      'Background 6',
+      'Background 7',
+      'Background 8',
+      'Background 9',
+      'Background 10',
+    ],
     s = 350,
     cnt = 0;
 
@@ -60,6 +72,7 @@
       cd.clearRect(0, 0, 350, 350);
     //$('#traits').html(``);
     txt = '{"attributes":[';
+    await dd('Background', 0, Background, 6);
     await dd('Body', 0, Body, 2);
     await dd('Ear', 0, Ear, 7);
     await dd('Face', 0, Face, 3);

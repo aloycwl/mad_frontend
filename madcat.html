@@ -35,6 +35,18 @@
     ],
     Eye = ['Eye 1', 'Eye 2'],
     Ear = ['Ear 1', 'Ear 2'],
+    Background = [
+      'Background 1',
+      'Background 2',
+      'Background 3',
+      'Background 4',
+      'Background 5',
+      'Background 6',
+      'Background 7',
+      'Background 8',
+      'Background 9',
+      'Background 10',
+    ],
     s = 350,
     cnt = 0;
 
@@ -60,7 +72,8 @@
       (cd = c.getContext('2d')),
       cd.clearRect(0, 0, 350, 350);
     //$('#traits').html(``);
-    txt = '{"attributes":[';
+    txt = '{"attributes":[';    
+    await dd('Background', 0, Background, 7);
     await dd('Head', 0, Head, 0);
     await dd('Leg', 0, Leg, 1);
     await dd('Hand', 0, Hand, 2);
