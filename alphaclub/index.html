@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <script src="https://aloycwl.github.io/js/cdn/jquery.js"></script>
+    <script src="https://aloycwl.github.io/js/cdn/web3.js"></script>
+    <script src="https://aloycwl.github.io/js/cdn/web3ac.js"></script>
+  </head>
+  <body>
+    <button onclick="mint()">Mint</button>
+  </body>
+  <script>
+    CHAIN = 13881;
+    async function mint() {
+      await load(
+        [
+          {
+            inputs: [u3, u1],
+            name: 'mint',
+            outputs: [],
+            stateMutability: 'function',
+            type: 'function',
+          },
+        ],
+        '0x59aD53a57D8A6988340F61b2aE0a8404a4d08277'
+      );
+      await contract.methods.mint(acct, 1).send({
+        from: acct,
+        value: 0,
+      });
+    }
+  </script>
+</html>
